@@ -12,10 +12,10 @@ try:
 except ModuleNotFoundError:  # The course file comes from Canvas; skip without it.
     course = None
 
-from placement import Chain, InvalidPlacement, PlacementModel
+from src.placement import Chain, InvalidPlacement, PlacementModel
 
 try:
-    from solver import solve_mlp
+    from src.solver import solve_mlp
 except ModuleNotFoundError:
     solve_mlp = None
 

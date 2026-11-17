@@ -19,9 +19,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import fake_dag_builder as fake
-from branch_and_bound import lower_bound, solve_bnb
-from exhaustive import best_completion
-from placement import EMPTY, Chain, PlacementModel, candidate_chains, decision_edges
+from src.branch_and_bound import lower_bound, solve_bnb
+from src.exhaustive import best_completion
+from src.placement import EMPTY, Chain, PlacementModel, candidate_chains, decision_edges
 
 EPS = 1e-6
 

@@ -21,9 +21,19 @@ The work has two phases, both fully reproducible here:
 All numbers in the final report are produced by the commands below on a laptop CPU
 (Ryzen 7 8845H, Python 3.11.3). No LLM and no GPU are involved.
 
+## Repository layout
+
+- `main.py` — the single entry point; every task below is `python main.py <command>`.
+- `src/` — all implementation: the placement model, the milestone local search, the
+  branch-and-bound solver and its exhaustive oracle, the experiment drivers, and the
+  figure/report builders.
+- `tests/` — 19 regression tests.
+- `results/` — experiment artifacts (CSV/JSON/PNG) that the report builders read.
+- `README.md`, `requirements.txt` — this file and the dependency pin.
+
 ## Setup
 
-Run these commands from the project directory. Python 3.11 or newer (the final experiments
+Run these commands from the repository root. Python 3.11 or newer (the final experiments
 used 3.11.3, the milestone 3.12.7) and Matplotlib 3.9.2:
 
 ```sh
@@ -40,49 +50,50 @@ python -m pip install -r requirements.txt
 Everything runs on a CPU and uses the course's `dag_builder.py` for the graphs, the official
 placements and the latency model. That file is course material and is therefore **not**
 committed to this repository: after cloning, download `dag_builder.py` from Canvas under
-Files → Project → Automated Bootstrapping Placement and put it next to `benchmark.py`. The
-test suite passes without it (the branch-and-bound tests score with `tests/fake_dag_builder.py`,
-a synthetic double) except `tests/test_milestone.py`, which skips itself.
+Files → Project → Automated Bootstrapping Placement and put it in the repository root, next
+to `main.py`. The test suite passes without it (the branch-and-bound tests score with
+`tests/fake_dag_builder.py`, a synthetic double) except `tests/test_milestone.py`, which
+skips itself.
 
 ## Reproduce the final results (report Tables 1–3 and Figure 1)
 
 ```sh
 # 1. Regression tests: 19 tests, about 2 s.
-python -m unittest discover -s tests -v
+python main.py test
 
 # 2. Milestone benchmark (seeds and baselines; also writes results/mlp_search.csv):
 #    about 6 s including plots.
-python benchmark.py --output-dir results
+python main.py benchmark --output-dir results
 
 # 3. Branch-and-bound, pass 1 (official + local-search seeds): 30 cases x 60 s,
 #    about 30 minutes. Writes results/bnb_pass1.csv and .json.
-python run_bnb.py --block both --levels 0-14 --time-budget 60 --node-budget 200000 \
+python main.py bnb --block both --levels 0-14 --time-budget 60 --node-budget 200000 \
     --output results/bnb_pass1.csv
 
 # 4. Pass 2 (adds every pass-1 placement as a cross-level seed): same budget,
 #    about 30 minutes. Writes results/bnb_search.csv and .json — the report's numbers.
-python run_bnb.py --block both --levels 0-14 --time-budget 60 --node-budget 200000 \
+python main.py bnb --block both --levels 0-14 --time-budget 60 --node-budget 200000 \
     --seed-pool results/bnb_pass1.json --output results/bnb_search.csv
 
 # 5. Budget sensitivity (report Table 3): two cases at 10 s and 300 s, about 12 minutes.
 #    Each run re-seeds from the pass-2 placements. Writes results/budget_*.csv.
-python run_bnb.py --block MLP --levels 6 --time-budget 10 \
+python main.py bnb --block MLP --levels 6 --time-budget 10 \
     --seed-pool results/bnb_search.json --output results/budget_mlp6_t10.csv
-python run_bnb.py --block MLP --levels 6 --time-budget 300 --node-budget 200000 \
+python main.py bnb --block MLP --levels 6 --time-budget 300 --node-budget 200000 \
     --seed-pool results/bnb_search.json --output results/budget_mlp6_t300.csv
-python run_bnb.py --block Attention --levels 9 --time-budget 10 \
+python main.py bnb --block Attention --levels 9 --time-budget 10 \
     --seed-pool results/bnb_search.json --output results/budget_attn9_t10.csv
-python run_bnb.py --block Attention --levels 9 --time-budget 300 --node-budget 200000 \
+python main.py bnb --block Attention --levels 9 --time-budget 300 --node-budget 200000 \
     --seed-pool results/bnb_search.json --output results/budget_attn9_t300.csv
 
 # 6. Placement diagrams (report uses the overview figure; these are the annotated DAGs):
 #    about 5 s. Writes results/figures/*.png.
-python make_figures.py --results results --out results/figures \
+python main.py figures --results results --out results/figures \
     --cases MLP:6 MLP:14 Attention:6 Attention:7
 
 # 7. The four-page final report PDF (also renders results/figures/report_overview.png):
 #    about 5 s. Requires reportlab (below).
-python build_final_report.py --out CS5491_Project_Final.pdf
+python main.py report-final --out CS5491_Project_Final.pdf
 ```
 
 Install the optional PDF dependency first if needed:
@@ -110,8 +121,8 @@ tie-or-improve relationship against the baselines is stable.
 ## Reproduce the milestone
 
 ```sh
-python -m unittest discover -s tests -v
-python benchmark.py --output-dir results
+python main.py test
+python main.py benchmark --output-dir results
 ```
 
 The search accepts up to five moves per input level. When two outgoing edges share the same
@@ -129,7 +140,7 @@ inserted operations, the evaluator charges for the common prefix once.
 For a shorter run over three representative levels:
 
 ```sh
-python benchmark.py --levels 0 6 14 --output-dir results-smoke --no-plots
+python main.py benchmark --levels 0 6 14 --output-dir results-smoke --no-plots
 ```
 
 Milestone check numbers: local search beats the official placement at all 15 MLP levels
@@ -139,11 +150,11 @@ the Attention baseline is 53,558.17 ms at every level.
 ## Rebuild the report PDFs
 
 ```sh
-python build_report.py --results results --out CS5491_Project_Milestone.pdf       # milestone, 2 pages
-python build_final_report.py --out CS5491_Project_Final.pdf                       # final, 4 pages + refs
+python main.py report-milestone --out CS5491_Project_Milestone.pdf   # milestone, 2 pages
+python main.py report-final --out CS5491_Project_Final.pdf           # final, 4 pages + refs
 ```
 
-Use `--authors "Name 1, Name 2, and Name 3"` on `build_report.py` to include the group author
+Use `--authors "Name 1, Name 2, and Name 3"` on `report-milestone` to include the group author
 line (the final builder defaults to the group's names). On Windows both builders use Times New
 Roman from the system font directory; on another platform, supply `--fonts` with the directory
 containing the Times New Roman files (`times.ttf`, `timesbd.ttf`, `timesi.ttf`, `timesbi.ttf`).
@@ -152,24 +163,26 @@ The final builder reads its table values from `results/` (`bnb_search.csv`, `mlp
 
 ## Code map
 
-- `placement.py`: Represents and validates edge insertion chains and compiles them into a
+- `main.py`: Single entry point. Forwards `test`, `benchmark`, `bnb`, `figures`,
+  `report-milestone`, and `report-final` to the modules below.
+- `src/placement.py`: Represents and validates edge insertion chains and compiles them into a
   graph for evaluation. `candidate_chains` and `decision_edges` define the search domain and
   branching order shared by every solver.
-- `solver.py`: Milestone local search — cost-reducing, feasible single-edge changes to the MLP
-  placement.
-- `branch_and_bound.py`: Exact branch-and-bound search over edge chains. The pruning lower
+- `src/solver.py`: Milestone local search — cost-reducing, feasible single-edge changes to the
+  MLP placement.
+- `src/branch_and_bound.py`: Exact branch-and-bound search over edge chains. The pruning lower
   bound is admissible (interval propagation + cheapest achievable operator costs + shared
   bootstrap accounting + forced-future-bootstrap cover); an optional node/time budget stops
   the search, which then reports the certified global lower bound and the optimality gap.
-- `exhaustive.py`: Enumerates every feasible completion of a partial state on small graphs;
+- `src/exhaustive.py`: Enumerates every feasible completion of a partial state on small graphs;
   the oracle used to verify the branch-and-bound solver and its bound.
-- `benchmark.py`: Milestone benchmark — tables, figures, and placements.
-- `run_bnb.py`: Branch-and-bound runs on both blocks under published time and node budgets.
+- `src/benchmark.py`: Milestone benchmark — tables, figures, and placements.
+- `src/run_bnb.py`: Branch-and-bound runs on both blocks under published time and node budgets.
   Seeds: official placement, milestone local search (MLP), and any earlier run's placements
   via `--seed-pool` (cross-level multi-start). Writes one CSV row per case plus JSON details.
-- `make_figures.py`: Renders annotated placement diagrams for selected result rows.
-- `build_report.py`: Builds the two-page milestone report PDF from the benchmark outputs.
-- `build_final_report.py`: Builds the four-page final report PDF from the branch-and-bound
+- `src/make_figures.py`: Renders annotated placement diagrams for selected result rows.
+- `src/build_report.py`: Builds the two-page milestone report PDF from the benchmark outputs.
+- `src/build_final_report.py`: Builds the four-page final report PDF from the branch-and-bound
   outputs, including the overview figure.
 - `tests/`: 19 regression tests. `tests/test_bnb.py` cross-checks the solver and its bound
   against exhaustive enumeration on small graphs (runs without the course file, scored by

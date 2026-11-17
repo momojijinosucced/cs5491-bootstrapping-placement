@@ -9,8 +9,8 @@ from time import perf_counter
 
 import dag_builder as db
 from matplotlib import pyplot as plt
-from placement import PlacementModel
-from solver import solve_mlp
+from src.placement import PlacementModel
+from src.solver import solve_mlp
 
 
 L_MAX = 14

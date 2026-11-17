@@ -9,8 +9,8 @@ optimality gap whenever the budget stops the search before optimality is
 proven.
 
 Usage:
-    python run_bnb.py --block both --levels 0-14 --time-budget 60
-    python run_bnb.py --seed-pool results/bnb_search.json --output results/bnb_search.csv
+    python main.py bnb --block both --levels 0-14 --time-budget 60
+    python main.py bnb --seed-pool results/bnb_search.json --output results/bnb_search.csv
 """
 
 import argparse
@@ -20,9 +20,9 @@ from dataclasses import asdict
 from pathlib import Path
 
 import dag_builder as course
-from branch_and_bound import solve_bnb
-from placement import EMPTY, Chain, PlacementModel
-from solver import solve_mlp
+from src.branch_and_bound import solve_bnb
+from src.placement import EMPTY, Chain, PlacementModel
+from src.solver import solve_mlp
 
 BLOCKS = {
     "MLP": (course.get_mlp_empty, course.get_mlp_baseline_inserted),

@@ -9,7 +9,7 @@ instances tiny; the combination count grows quickly with the edge count.
 from collections.abc import Iterator, Mapping
 from itertools import product
 
-from placement import Chain, Evaluation, Placement, PlacementModel, candidate_chains, decision_edges
+from src.placement import Chain, Evaluation, Placement, PlacementModel, candidate_chains, decision_edges
 
 
 class TooManyCombinations(ValueError):

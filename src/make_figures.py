@@ -5,7 +5,7 @@ re-evaluates each saved placement with the course scorer, and draws the DAG
 with levels on the edges via ``dag_builder.visualize_empty_dag``.
 
 Usage:
-    python make_figures.py --results results --out figures \
+    python main.py figures --results results --out figures \
         --cases MLP:0 MLP:14 Attention:0 Attention:14
 """
 
@@ -15,7 +15,7 @@ import json
 from pathlib import Path
 
 import dag_builder as course
-from placement import Chain, PlacementModel
+from src.placement import Chain, PlacementModel
 
 BLOCKS = {
     "MLP": course.get_mlp_empty,

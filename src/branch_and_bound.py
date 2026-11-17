@@ -12,7 +12,7 @@ is honest even without a complete search.
 from dataclasses import dataclass
 from time import perf_counter
 
-from placement import (
+from src.placement import (
     EMPTY,
     _MIN_LEVEL,
     Chain,

@@ -23,9 +23,9 @@ try:
 except ModuleNotFoundError:  # The course file comes from Canvas; skip without it.
     course = None
 
-from branch_and_bound import lower_bound, solve_bnb
-from exhaustive import best_completion
-from placement import EMPTY, Chain, PlacementModel, candidate_chains, decision_edges
+from src.branch_and_bound import lower_bound, solve_bnb
+from src.exhaustive import best_completion
+from src.placement import EMPTY, Chain, PlacementModel, candidate_chains, decision_edges
 
 EPS = 1e-6
 

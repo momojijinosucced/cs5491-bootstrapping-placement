@@ -90,13 +90,13 @@ def build(results, out, fonts, authors):
     ]))
     story.extend([
         table, Spacer(1, 5),
-        p("<b>Table 1.</b> Representative MLP results. Bootstraps are counted per ciphertext or pair, as applicable."),
+        p("<b>Table 1.</b> Representative MLP results. Bootstraps are counted per ciphertext or pair, as applicable. The identical search latency at levels 0 through 13 is expected: a free Modswitch pins the input to level 0, and operation costs depend only on the absolute level at which each operation runs."),
         p("A Modswitch before the inverse square root in LayerNorm lowered its input from 14 to 7 and saved 1,019.13 ms on that operator alone, while leaving enough levels downstream. At input level 14, removing the first bootstrap also reduced the budget from 136 to 80. Depth stayed at 26, so utilization rose from 19.1% to 32.5%."),
         Image(str(results / "mlp_comparison.png"), width=14.6 * cm, height=14.6 * cm * 684 / 1416),
         p("<b>Figure 1.</b> Estimated MLP latency saved relative to the official placement."),
         h("5. Limitations and next steps"),
         p(f"Each search accepted {min(move_count)}–{max(move_count)} moves ({min_runtime:.2f}–{max_runtime:.2f} s per input on the test laptop) before exhausting improving single-edge moves. Some improvements may need coordinated changes to multiple edges. We have no global optimality certificate. Next we will use these placements to initialize a bounded branch-and-bound search for the MLP and port the search to Attention, where fan-out and shared costs make isolated moves more restrictive."),
-        p("<b>Reproduction.</b> Run <i>python benchmark.py --output-dir results</i> from the code directory. The command writes the full benchmark tables and annotated MLP graphs at input levels 0 and 14."),
+        p("<b>Reproduction.</b> Run <i>python main.py benchmark --output-dir results</i> from the repository root. The command writes the full benchmark tables and annotated MLP graphs at input levels 0 and 14."),
     ])
 
     def footer(canvas, doc):

@@ -263,10 +263,10 @@ def build(results, out, fonts, authors):
           "39&ndash;62% leave the full-block optima uncertified, and the joint attention+MLP graph extension "
           "was not attempted. Natural next steps are stronger bounds on undecided bootstraps (path-cover or "
           "hitting-set relaxations), best-first or Lagrangian search, and joint-graph placement."),
-        p("<b>Reproduction.</b> From the code repository: <i>python -m unittest discover -s tests</i>; "
-          "<i>python run_bnb.py --block both --levels 0-14 --time-budget 60 --node-budget 200000 --output "
-          "results/bnb_search.csv</i>; <i>python make_figures.py --results results --out results/figures "
-          "--cases MLP:6 MLP:14 Attention:6 Attention:7</i>; <i>python build_final_report.py --out "
+        p("<b>Reproduction.</b> From the repository root: <i>python main.py test</i>; "
+          "<i>python main.py bnb --block both --levels 0-14 --time-budget 60 --node-budget 200000 --output "
+          "results/bnb_search.csv</i>; <i>python main.py figures --results results --out results/figures "
+          "--cases MLP:6 MLP:14 Attention:6 Attention:7</i>; <i>python main.py report-final --out "
           "CS5491_Project_Final.pdf</i>."),
         PageBreak(),
         h("References"),

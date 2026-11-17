@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from time import perf_counter
 
 import dag_builder as db
-from placement import EMPTY, Chain, Evaluation, PlacementModel, candidate_chains
+from src.placement import EMPTY, Chain, Evaluation, PlacementModel, candidate_chains
 
 
 Edge = tuple[str, str]
