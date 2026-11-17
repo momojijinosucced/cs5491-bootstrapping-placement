@@ -1,0 +1,40 @@
+[
+  {
+    "block": "MLP",
+    "l_init": 6,
+    "placement": [
+      {
+        "edge": [
+          "Add_res_mlp",
+          "x_mask2_mlp"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "Conj_X_mlp",
+          "Mul_mask_mlp"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "add_z_mlp",
+          "mul_z_gamma_mlp"
+        ],
+        "boot": 0,
+        "target": 2
+      },
+      {
+        "edge": [
+          "sum_mu_mlp",
+          "mask_mu_mlp"
+        ],
+        "boot": 0,
+        "target": 11
+      }
+    ]
+  }
+]

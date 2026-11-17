@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from time import perf_counter
 
 import dag_builder as db
-from placement import EMPTY, Chain, Evaluation, PlacementModel
+from placement import EMPTY, Chain, Evaluation, PlacementModel, candidate_chains
 
 
 Edge = tuple[str, str]
@@ -34,21 +34,6 @@ class SearchResult:
     moves: tuple[Move, ...]
     solver_seconds: float
     stop_reason: str
-
-
-def candidate_chains(ciphertexts: int, l_max: int) -> tuple[Chain, ...]:
-    """Enumerate level targets and permitted bootstrap types for an edge.
-
-    Mode zero starts from the original edge level, which is known only when
-    evaluating a placement. The validator discards nondecreasing switches.
-    """
-    boot_types = (0, 1, 2) if ciphertexts in (8, 16) else (0, 1)
-    chains = []
-    for boot in boot_types:
-        chains.append(Chain(boot))
-        highest_input = l_max - 1 if boot == 2 else l_max
-        chains.extend(Chain(boot, target) for target in range(highest_input))
-    return tuple(chains)
 
 
 def solve_mlp(level: int, max_steps: int = 5) -> SearchResult:

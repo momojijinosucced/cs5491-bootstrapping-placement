@@ -7,13 +7,25 @@ from pathlib import Path
 # Support test discovery from both the repository root and the milestone directory.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-import dag_builder as course
+try:
+    import dag_builder as course
+except ModuleNotFoundError:  # The course file comes from Canvas; skip without it.
+    course = None
+
 from placement import Chain, InvalidPlacement, PlacementModel
-from solver import solve_mlp
+
+try:
+    from solver import solve_mlp
+except ModuleNotFoundError:
+    solve_mlp = None
 
 
+@unittest.skipIf(course is None, "course dag_builder.py is not present")
 class PlacementTests(unittest.TestCase):
+    """Placement semantics checked against the course scorer's own baselines."""
+
     def test_matches_provided_baselines(self):
+        """Rebuilding the official placements reproduces evaluate_dag exactly."""
         cases = (
             ("MLP", course.get_mlp_empty, course.get_mlp_baseline_inserted, 6),
             ("Attention", course.get_attn_empty, course.get_attn_baseline_inserted, 9),
@@ -39,6 +51,7 @@ class PlacementTests(unittest.TestCase):
                     self.assertEqual(result.l_out[node], reference["l_out"][node], node)
 
     def test_removing_initial_mlp_bootstrap_depends_on_input_level(self):
+        """The first MLP bootstrap is redundant only at a full-height input."""
         model = PlacementModel(*course.get_mlp_empty())
         inserted_nodes, inserted_edges = course.get_mlp_baseline_inserted()
         first_bootstrap = ("Conj_X_mlp", "Mul_mask_mlp")
@@ -59,6 +72,7 @@ class PlacementTests(unittest.TestCase):
                     self.assertAlmostEqual(baseline.latency - modified.latency, 4 * 1040.15)
 
     def test_shared_bootstrap_and_modswitch_prefixes_count_once(self):
+        """Edges sharing a bootstrap-and-switch prefix pay for one node of each."""
         nodes = [(name, "Identity", 0, name) for name in ("src", "a", "b", "c")]
         nodes.append(("join", "Mul", 1, "join"))
         edges = [("src", branch, 8) for branch in ("a", "b", "c")]
@@ -85,6 +99,7 @@ class PlacementTests(unittest.TestCase):
         self.assertAlmostEqual(result.latency, 4 * 1293.13 + course.LATENCY["Mul"](3))
 
     def test_illegal_bootstrap_and_modswitch_are_rejected(self):
+        """B2 on wrong counts and upward switches are rejected as infeasible."""
         nodes = [(name, "Identity", 0, name) for name in ("src", "dst")]
         cases = (
             ("odd ciphertext count", 3, Chain(boot=2)),
@@ -101,8 +116,12 @@ class PlacementTests(unittest.TestCase):
                 self.assertIsNone(model.evaluate(placement, l_init=2))
 
 
+@unittest.skipIf(course is None, "course dag_builder.py is not present")
 class SearchTests(unittest.TestCase):
+    """The milestone local search improves the baseline and is deterministic."""
+
     def test_bounded_search_improves_baseline_and_repeats_its_result(self):
+        """One search step strictly improves the baseline and repeats identically."""
         baseline = solve_mlp(14, max_steps=0)
         self.assertEqual((baseline.evaluated, baseline.steps), (0, 0))
         first = solve_mlp(14, max_steps=1)

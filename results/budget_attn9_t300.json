@@ -1,0 +1,96 @@
+[
+  {
+    "block": "Attention",
+    "l_init": 9,
+    "placement": [
+      {
+        "edge": [
+          "QK_mul_attn",
+          "qk_div2_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "SV_mul_attn",
+          "rotate_SV_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Conj_back_X_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "K_Wk_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Q_Wq_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "V_Wv_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "iter1_affine_s_attn",
+          "iter1_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_affine_s_attn",
+          "iter2_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_y_sq_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_ylam_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "mul_var_attn",
+          "invsqrt_var_attn"
+        ],
+        "boot": 1,
+        "target": null
+      }
+    ]
+  }
+]

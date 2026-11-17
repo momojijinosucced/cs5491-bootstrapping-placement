@@ -4,8 +4,12 @@ from collections import defaultdict, deque
 from collections.abc import Callable, Iterable, Mapping
 from dataclasses import dataclass
 from math import isclose
+from typing import Protocol
 
-import dag_builder
+try:
+    import dag_builder as _course
+except ModuleNotFoundError:  # The course file is not committed; logic tests supply a scorer.
+    _course = None
 
 
 Edge = tuple[str, str]
@@ -28,6 +32,21 @@ class InvalidPlacement(ValueError):
     """A chain, graph, or induced level violates the placement rules."""
 
 
+class CourseScorer(Protocol):
+    """The subset of the course's dag_builder interface used for scoring."""
+
+    LATENCY: LatencyTable
+
+    def evaluate_dag(self, nodes, edges, l_init, l_max, latency=None) -> dict | None:
+        """Score a compiled DAG; return the metrics dict, or None when infeasible."""
+
+    def depth_of(self, nodes, edges) -> int:
+        """Largest level cost along a path, ignoring inserted nodes."""
+
+    def budget_of(self, nodes, edges, l_init, l_max) -> tuple[int, int, int]:
+        """Counted Bootstrap1 ciphertexts, Bootstrap2 pairs, and the budget."""
+
+
 @dataclass(frozen=True)
 class Chain:
     """A bootstrap (0 = none), optionally followed by a switch to `target`."""
@@ -38,6 +57,31 @@ class Chain:
 
 EMPTY = Chain()
 Placement = Mapping[Edge, Chain]
+
+
+def candidate_chains(ciphertexts: int, l_max: int) -> tuple[Chain, ...]:
+    """Enumerate level targets and permitted bootstrap types for an edge.
+
+    Mode zero starts from the original edge level, which is known only when
+    evaluating a placement. The validator discards nondecreasing switches.
+    """
+    boot_types = (0, 1, 2) if ciphertexts in (8, 16) else (0, 1)
+    chains = []
+    for boot in boot_types:
+        chains.append(Chain(boot))
+        highest_input = l_max - 1 if boot == 2 else l_max
+        chains.extend(Chain(boot, target) for target in range(highest_input))
+    return tuple(chains)
+
+
+def decision_edges(model: "PlacementModel") -> tuple[Edge, ...]:
+    """Return original edges in a deterministic branching order.
+
+    Edges leave their source in topological order, so earlier decisions fix
+    levels that later ones consume; ties break on the target name.
+    """
+    rank = {name: i for i, name in enumerate(model.topological_order)}
+    return tuple(sorted(model.edge_counts, key=lambda e: (rank[e[0]], rank[e[1]])))
 
 
 @dataclass(frozen=True)
@@ -74,11 +118,16 @@ class PlacementModel:
         l_max: int = 14,
         *,
         latency: LatencyTable | None = None,
+        scorer: CourseScorer | None = None,
     ) -> None:
+        """Index the block DAG and bind the scoring rules."""
         if type(l_max) is not int or not 1 <= l_max <= 14:
             raise InvalidPlacement("l_max must be an integer in [1, 14]")
         self.l_max = l_max
-        self.latency = dict(dag_builder.LATENCY if latency is None else latency)
+        self.scorer = _course if scorer is None else scorer
+        if self.scorer is None:
+            raise RuntimeError("Missing course module dag_builder.py; pass scorer= explicitly")
+        self.latency = dict(self.scorer.LATENCY if latency is None else latency)
         self.nodes = tuple(nodes)
         self.edges = tuple(edges)
         self.node_by_name = {node[0]: node for node in self.nodes}
@@ -123,6 +172,7 @@ class PlacementModel:
         self.topological_order = tuple(ordered)
 
     def _check_l_init(self, l_init: int) -> None:
+        """Reject input levels outside [0, l_max]."""
         if type(l_init) is not int or not 0 <= l_init <= self.l_max:
             raise InvalidPlacement(f"l_init must be an integer in [0, {self.l_max}]")
 
@@ -139,6 +189,7 @@ class PlacementModel:
         used_names = set(self.node_by_name)
 
         def insert(parent: str, count: int, op: str, cost: int, label: str) -> str:
+            """Append one fresh inserted node to the compiled graph and return its name."""
             index = len(nodes) - len(self.nodes) + 1
             name = f"__placement_{index}"
             while name in used_names:
@@ -192,11 +243,11 @@ class PlacementModel:
         except InvalidPlacement:
             return None
         nodes, edges = compiled.nodes, compiled.edges
-        scored = dag_builder.evaluate_dag(nodes, edges, l_init, self.l_max, self.latency)
+        scored = self.scorer.evaluate_dag(nodes, edges, l_init, self.l_max, self.latency)
         if scored is None:
             raise RuntimeError("The legality pass and reference scorer disagree")
-        depth = dag_builder.depth_of(nodes, edges)
-        n_b1, n_b2, budget = dag_builder.budget_of(nodes, edges, l_init, self.l_max)
+        depth = self.scorer.depth_of(nodes, edges)
+        n_b1, n_b2, budget = self.scorer.budget_of(nodes, edges, l_init, self.l_max)
         return Evaluation(
             nodes, edges, compiled.levels, scored["latency"], n_b1, n_b2, depth, budget,
             depth / budget if budget else 0.0, scored["l_in"], scored["l_out"], scored["edge_lvl"],
@@ -251,7 +302,7 @@ class PlacementModel:
         if paths.keys() != self.edge_counts.keys() or used_insertions != insertions:
             raise InvalidPlacement("The inserted DAG omits original edges or has unused insertions")
 
-        scored = dag_builder.evaluate_dag(
+        scored = self.scorer.evaluate_dag(
             inserted_nodes, inserted_edges, l_init, self.l_max, self.latency
         )
         if scored is None:

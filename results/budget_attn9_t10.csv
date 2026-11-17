@@ -1,0 +1,2 @@
+block,l_init,baseline_ms,seed_ms,seed_source,bnb_ms,saved_vs_seed_ms,b1,b2,depth,budget,utilization,proven_optimal,lower_bound_ms,gap_percent,expansions,leaves,solver_seconds,stop_reason,time_budget_s,node_budget
+Attention,9,53558.1718,53558.1718,official,53558.1718,0.0,9,8,62,239,0.25941423,False,20357.3288,61.99024702,2794,0,10.001135,time_budget,10.0,200000

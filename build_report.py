@@ -19,6 +19,7 @@ from reportlab.platypus import Image, PageBreak, Paragraph, SimpleDocTemplate, S
 def build(results, out, fonts, authors):
     """Read experiment artifacts and typeset the report in the course format."""
     def read_csv(name):
+        """Read one results CSV as a list of row dicts."""
         with (results / name).open(encoding="utf-8", newline="") as stream:
             return list(csv.DictReader(stream))
 
@@ -40,9 +41,11 @@ def build(results, out, fonts, authors):
     label = ParagraphStyle("Column", parent=number, fontName="TNRBold")
 
     def p(s):
+        """Set a body paragraph."""
         return Paragraph(s, tnr)
 
     def h(s):
+        """Set a section heading."""
         return Paragraph(s, heading)
 
     summary_counts = (sum(float(row["saved_ms"]) > 0 for row in search.values()), len(search))
@@ -97,6 +100,7 @@ def build(results, out, fonts, authors):
     ])
 
     def footer(canvas, doc):
+        """Draw the centered page number."""
         canvas.saveState()
         canvas.setFont("TNR", 12)
         canvas.setFillColor(colors.HexColor("#4b4b4b"))

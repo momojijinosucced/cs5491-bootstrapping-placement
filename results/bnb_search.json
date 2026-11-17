@@ -1,0 +1,1894 @@
+[
+  {
+    "block": "MLP",
+    "l_init": 0,
+    "placement": [
+      {
+        "edge": [
+          "Add_res_mlp",
+          "x_mask2_mlp"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "Conj_X_mlp",
+          "Mul_mask_mlp"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "add_z_mlp",
+          "mul_z_gamma_mlp"
+        ],
+        "boot": 0,
+        "target": 2
+      },
+      {
+        "edge": [
+          "sum_mu_mlp",
+          "mask_mu_mlp"
+        ],
+        "boot": 0,
+        "target": 11
+      }
+    ]
+  },
+  {
+    "block": "MLP",
+    "l_init": 1,
+    "placement": [
+      {
+        "edge": [
+          "Add_res_mlp",
+          "x_mask2_mlp"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "Conj_X_mlp",
+          "Mul_mask_mlp"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "add_z_mlp",
+          "mul_z_gamma_mlp"
+        ],
+        "boot": 0,
+        "target": 2
+      },
+      {
+        "edge": [
+          "sum_mu_mlp",
+          "mask_mu_mlp"
+        ],
+        "boot": 0,
+        "target": 11
+      }
+    ]
+  },
+  {
+    "block": "MLP",
+    "l_init": 2,
+    "placement": [
+      {
+        "edge": [
+          "Add_res_mlp",
+          "x_mask2_mlp"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "Conj_X_mlp",
+          "Mul_mask_mlp"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "add_z_mlp",
+          "mul_z_gamma_mlp"
+        ],
+        "boot": 0,
+        "target": 2
+      },
+      {
+        "edge": [
+          "sum_mu_mlp",
+          "mask_mu_mlp"
+        ],
+        "boot": 0,
+        "target": 11
+      }
+    ]
+  },
+  {
+    "block": "MLP",
+    "l_init": 3,
+    "placement": [
+      {
+        "edge": [
+          "Add_res_mlp",
+          "x_mask2_mlp"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "Conj_X_mlp",
+          "Mul_mask_mlp"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "add_z_mlp",
+          "mul_z_gamma_mlp"
+        ],
+        "boot": 0,
+        "target": 2
+      },
+      {
+        "edge": [
+          "sum_mu_mlp",
+          "mask_mu_mlp"
+        ],
+        "boot": 0,
+        "target": 11
+      }
+    ]
+  },
+  {
+    "block": "MLP",
+    "l_init": 4,
+    "placement": [
+      {
+        "edge": [
+          "Add_res_mlp",
+          "x_mask2_mlp"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "Conj_X_mlp",
+          "Mul_mask_mlp"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "add_z_mlp",
+          "mul_z_gamma_mlp"
+        ],
+        "boot": 0,
+        "target": 2
+      },
+      {
+        "edge": [
+          "sum_mu_mlp",
+          "mask_mu_mlp"
+        ],
+        "boot": 0,
+        "target": 11
+      }
+    ]
+  },
+  {
+    "block": "MLP",
+    "l_init": 5,
+    "placement": [
+      {
+        "edge": [
+          "Add_res_mlp",
+          "x_mask2_mlp"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "Conj_X_mlp",
+          "Mul_mask_mlp"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "add_z_mlp",
+          "mul_z_gamma_mlp"
+        ],
+        "boot": 0,
+        "target": 2
+      },
+      {
+        "edge": [
+          "sum_mu_mlp",
+          "mask_mu_mlp"
+        ],
+        "boot": 0,
+        "target": 11
+      }
+    ]
+  },
+  {
+    "block": "MLP",
+    "l_init": 6,
+    "placement": [
+      {
+        "edge": [
+          "Add_res_mlp",
+          "x_mask2_mlp"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "Conj_X_mlp",
+          "Mul_mask_mlp"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "add_z_mlp",
+          "mul_z_gamma_mlp"
+        ],
+        "boot": 0,
+        "target": 2
+      },
+      {
+        "edge": [
+          "sum_mu_mlp",
+          "mask_mu_mlp"
+        ],
+        "boot": 0,
+        "target": 11
+      }
+    ]
+  },
+  {
+    "block": "MLP",
+    "l_init": 7,
+    "placement": [
+      {
+        "edge": [
+          "Add_res_mlp",
+          "x_mask2_mlp"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "Conj_X_mlp",
+          "Mul_mask_mlp"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "add_z_mlp",
+          "mul_z_gamma_mlp"
+        ],
+        "boot": 0,
+        "target": 2
+      },
+      {
+        "edge": [
+          "sum_mu_mlp",
+          "mask_mu_mlp"
+        ],
+        "boot": 0,
+        "target": 11
+      }
+    ]
+  },
+  {
+    "block": "MLP",
+    "l_init": 8,
+    "placement": [
+      {
+        "edge": [
+          "Add_res_mlp",
+          "x_mask2_mlp"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "Conj_X_mlp",
+          "Mul_mask_mlp"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "add_z_mlp",
+          "mul_z_gamma_mlp"
+        ],
+        "boot": 0,
+        "target": 2
+      },
+      {
+        "edge": [
+          "sum_mu_mlp",
+          "mask_mu_mlp"
+        ],
+        "boot": 0,
+        "target": 11
+      }
+    ]
+  },
+  {
+    "block": "MLP",
+    "l_init": 9,
+    "placement": [
+      {
+        "edge": [
+          "Add_res_mlp",
+          "x_mask2_mlp"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "Conj_X_mlp",
+          "Mul_mask_mlp"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "add_z_mlp",
+          "mul_z_gamma_mlp"
+        ],
+        "boot": 0,
+        "target": 2
+      },
+      {
+        "edge": [
+          "sum_mu_mlp",
+          "mask_mu_mlp"
+        ],
+        "boot": 0,
+        "target": 11
+      }
+    ]
+  },
+  {
+    "block": "MLP",
+    "l_init": 10,
+    "placement": [
+      {
+        "edge": [
+          "Add_res_mlp",
+          "x_mask2_mlp"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "Conj_X_mlp",
+          "Mul_mask_mlp"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "add_z_mlp",
+          "mul_z_gamma_mlp"
+        ],
+        "boot": 0,
+        "target": 2
+      },
+      {
+        "edge": [
+          "sum_mu_mlp",
+          "mask_mu_mlp"
+        ],
+        "boot": 0,
+        "target": 11
+      }
+    ]
+  },
+  {
+    "block": "MLP",
+    "l_init": 11,
+    "placement": [
+      {
+        "edge": [
+          "Add_res_mlp",
+          "x_mask2_mlp"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "Conj_X_mlp",
+          "Mul_mask_mlp"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "add_z_mlp",
+          "mul_z_gamma_mlp"
+        ],
+        "boot": 0,
+        "target": 2
+      },
+      {
+        "edge": [
+          "sum_mu_mlp",
+          "mask_mu_mlp"
+        ],
+        "boot": 0,
+        "target": 11
+      }
+    ]
+  },
+  {
+    "block": "MLP",
+    "l_init": 12,
+    "placement": [
+      {
+        "edge": [
+          "Add_res_mlp",
+          "x_mask2_mlp"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "Conj_X_mlp",
+          "Mul_mask_mlp"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "add_z_mlp",
+          "mul_z_gamma_mlp"
+        ],
+        "boot": 0,
+        "target": 2
+      },
+      {
+        "edge": [
+          "sum_mu_mlp",
+          "mask_mu_mlp"
+        ],
+        "boot": 0,
+        "target": 11
+      }
+    ]
+  },
+  {
+    "block": "MLP",
+    "l_init": 13,
+    "placement": [
+      {
+        "edge": [
+          "Add_res_mlp",
+          "x_mask2_mlp"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "Conj_X_mlp",
+          "Mul_mask_mlp"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "add_z_mlp",
+          "mul_z_gamma_mlp"
+        ],
+        "boot": 0,
+        "target": 2
+      },
+      {
+        "edge": [
+          "sum_mu_mlp",
+          "mask_mu_mlp"
+        ],
+        "boot": 0,
+        "target": 11
+      }
+    ]
+  },
+  {
+    "block": "MLP",
+    "l_init": 14,
+    "placement": [
+      {
+        "edge": [
+          "Add_res_mlp",
+          "x_mask2_mlp"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "add_z_mlp",
+          "mul_z_gamma_mlp"
+        ],
+        "boot": 0,
+        "target": 2
+      },
+      {
+        "edge": [
+          "sum_mu_mlp",
+          "mask_mu_mlp"
+        ],
+        "boot": 0,
+        "target": 11
+      }
+    ]
+  },
+  {
+    "block": "Attention",
+    "l_init": 0,
+    "placement": [
+      {
+        "edge": [
+          "QK_mul_attn",
+          "qk_div2_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "SV_mul_attn",
+          "rotate_SV_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Conj_back_X_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "K_Wk_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Q_Wq_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "V_Wv_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "iter1_affine_s_attn",
+          "iter1_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_affine_s_attn",
+          "iter2_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_y_sq_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_ylam_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "mul_var_attn",
+          "invsqrt_var_attn"
+        ],
+        "boot": 1,
+        "target": null
+      }
+    ]
+  },
+  {
+    "block": "Attention",
+    "l_init": 1,
+    "placement": [
+      {
+        "edge": [
+          "QK_mul_attn",
+          "qk_div2_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "SV_mul_attn",
+          "rotate_SV_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Conj_back_X_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "K_Wk_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Q_Wq_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "V_Wv_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "iter1_affine_s_attn",
+          "iter1_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_affine_s_attn",
+          "iter2_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_y_sq_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_ylam_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "mul_var_attn",
+          "invsqrt_var_attn"
+        ],
+        "boot": 1,
+        "target": null
+      }
+    ]
+  },
+  {
+    "block": "Attention",
+    "l_init": 2,
+    "placement": [
+      {
+        "edge": [
+          "QK_mul_attn",
+          "qk_div2_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "SV_mul_attn",
+          "rotate_SV_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Conj_back_X_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "K_Wk_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Q_Wq_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "V_Wv_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "iter1_affine_s_attn",
+          "iter1_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_affine_s_attn",
+          "iter2_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_y_sq_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_ylam_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "mul_var_attn",
+          "invsqrt_var_attn"
+        ],
+        "boot": 1,
+        "target": null
+      }
+    ]
+  },
+  {
+    "block": "Attention",
+    "l_init": 3,
+    "placement": [
+      {
+        "edge": [
+          "QK_mul_attn",
+          "qk_div2_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "SV_mul_attn",
+          "rotate_SV_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Conj_back_X_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "K_Wk_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Q_Wq_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "V_Wv_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "iter1_affine_s_attn",
+          "iter1_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_affine_s_attn",
+          "iter2_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_y_sq_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_ylam_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "mul_var_attn",
+          "invsqrt_var_attn"
+        ],
+        "boot": 1,
+        "target": null
+      }
+    ]
+  },
+  {
+    "block": "Attention",
+    "l_init": 4,
+    "placement": [
+      {
+        "edge": [
+          "QK_mul_attn",
+          "qk_div2_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "SV_mul_attn",
+          "rotate_SV_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Conj_back_X_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "K_Wk_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Q_Wq_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "V_Wv_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "iter1_affine_s_attn",
+          "iter1_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_affine_s_attn",
+          "iter2_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_y_sq_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_ylam_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "mul_var_attn",
+          "invsqrt_var_attn"
+        ],
+        "boot": 1,
+        "target": null
+      }
+    ]
+  },
+  {
+    "block": "Attention",
+    "l_init": 5,
+    "placement": [
+      {
+        "edge": [
+          "QK_mul_attn",
+          "qk_div2_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "SV_mul_attn",
+          "rotate_SV_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Conj_back_X_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "K_Wk_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Q_Wq_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "V_Wv_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "iter1_affine_s_attn",
+          "iter1_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_affine_s_attn",
+          "iter2_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_y_sq_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_ylam_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "mul_var_attn",
+          "invsqrt_var_attn"
+        ],
+        "boot": 1,
+        "target": null
+      }
+    ]
+  },
+  {
+    "block": "Attention",
+    "l_init": 6,
+    "placement": [
+      {
+        "edge": [
+          "QK_mul_attn",
+          "qk_div2_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter1_affine_s_attn",
+          "iter1_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_affine_s_attn",
+          "iter2_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter3_sum_s_attn",
+          "iter3_affine_s_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter3_ylam_attn",
+          "iter3_S_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "mul_var_attn",
+          "invsqrt_var_attn"
+        ],
+        "boot": 1,
+        "target": 7
+      },
+      {
+        "edge": [
+          "x_SV_Wo_attn",
+          "x_mask_attn"
+        ],
+        "boot": 2,
+        "target": null
+      }
+    ]
+  },
+  {
+    "block": "Attention",
+    "l_init": 7,
+    "placement": [
+      {
+        "edge": [
+          "add_out_attn",
+          "x_mask2_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "add_z_attn",
+          "mul_z_gamma_attn"
+        ],
+        "boot": 0,
+        "target": 2
+      },
+      {
+        "edge": [
+          "conj_S_attn",
+          "S_mask_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "div_768_attn",
+          "add_z_attn"
+        ],
+        "boot": 0,
+        "target": 9
+      },
+      {
+        "edge": [
+          "iter1_affine_s_attn",
+          "iter1_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_affine_s_attn",
+          "iter2_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter3_affine_s_attn",
+          "iter3_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "qk_div2_attn",
+          "qk_affine_attn"
+        ],
+        "boot": 2,
+        "target": null
+      }
+    ]
+  },
+  {
+    "block": "Attention",
+    "l_init": 8,
+    "placement": [
+      {
+        "edge": [
+          "add_out_attn",
+          "x_mask2_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "add_z_attn",
+          "mul_z_gamma_attn"
+        ],
+        "boot": 0,
+        "target": 2
+      },
+      {
+        "edge": [
+          "conj_S_attn",
+          "S_mask_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "div_768_attn",
+          "add_z_attn"
+        ],
+        "boot": 0,
+        "target": 9
+      },
+      {
+        "edge": [
+          "iter1_affine_s_attn",
+          "iter1_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_affine_s_attn",
+          "iter2_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter3_affine_s_attn",
+          "iter3_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "qk_div2_attn",
+          "qk_affine_attn"
+        ],
+        "boot": 2,
+        "target": null
+      }
+    ]
+  },
+  {
+    "block": "Attention",
+    "l_init": 9,
+    "placement": [
+      {
+        "edge": [
+          "QK_mul_attn",
+          "qk_div2_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "SV_mul_attn",
+          "rotate_SV_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Conj_back_X_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "K_Wk_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Q_Wq_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "V_Wv_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "iter1_affine_s_attn",
+          "iter1_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_affine_s_attn",
+          "iter2_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_y_sq_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_ylam_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "mul_var_attn",
+          "invsqrt_var_attn"
+        ],
+        "boot": 1,
+        "target": null
+      }
+    ]
+  },
+  {
+    "block": "Attention",
+    "l_init": 10,
+    "placement": [
+      {
+        "edge": [
+          "QK_mul_attn",
+          "qk_div2_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "SV_mul_attn",
+          "rotate_SV_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Conj_back_X_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "K_Wk_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Q_Wq_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "V_Wv_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "iter1_affine_s_attn",
+          "iter1_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_affine_s_attn",
+          "iter2_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_y_sq_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_ylam_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "mul_var_attn",
+          "invsqrt_var_attn"
+        ],
+        "boot": 1,
+        "target": null
+      }
+    ]
+  },
+  {
+    "block": "Attention",
+    "l_init": 11,
+    "placement": [
+      {
+        "edge": [
+          "QK_mul_attn",
+          "qk_div2_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "SV_mul_attn",
+          "rotate_SV_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Conj_back_X_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "K_Wk_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Q_Wq_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "V_Wv_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "iter1_affine_s_attn",
+          "iter1_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_affine_s_attn",
+          "iter2_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_y_sq_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_ylam_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "mul_var_attn",
+          "invsqrt_var_attn"
+        ],
+        "boot": 1,
+        "target": null
+      }
+    ]
+  },
+  {
+    "block": "Attention",
+    "l_init": 12,
+    "placement": [
+      {
+        "edge": [
+          "QK_mul_attn",
+          "qk_div2_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "SV_mul_attn",
+          "rotate_SV_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Conj_back_X_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "K_Wk_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Q_Wq_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "V_Wv_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "iter1_affine_s_attn",
+          "iter1_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_affine_s_attn",
+          "iter2_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_y_sq_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_ylam_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "mul_var_attn",
+          "invsqrt_var_attn"
+        ],
+        "boot": 1,
+        "target": null
+      }
+    ]
+  },
+  {
+    "block": "Attention",
+    "l_init": 13,
+    "placement": [
+      {
+        "edge": [
+          "QK_mul_attn",
+          "qk_div2_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "SV_mul_attn",
+          "rotate_SV_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Conj_back_X_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "K_Wk_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Q_Wq_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "V_Wv_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "iter1_affine_s_attn",
+          "iter1_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_affine_s_attn",
+          "iter2_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_y_sq_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_ylam_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "mul_var_attn",
+          "invsqrt_var_attn"
+        ],
+        "boot": 1,
+        "target": null
+      }
+    ]
+  },
+  {
+    "block": "Attention",
+    "l_init": 14,
+    "placement": [
+      {
+        "edge": [
+          "QK_mul_attn",
+          "qk_div2_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "SV_mul_attn",
+          "rotate_SV_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Conj_back_X_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "K_Wk_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "Q_Wq_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "X_in_attn",
+          "V_Wv_attn"
+        ],
+        "boot": 1,
+        "target": 6
+      },
+      {
+        "edge": [
+          "iter1_affine_s_attn",
+          "iter1_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_affine_s_attn",
+          "iter2_invsqrt_attn"
+        ],
+        "boot": 1,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_y_sq_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "iter2_y_sq2_attn",
+          "iter3_ylam_attn"
+        ],
+        "boot": 2,
+        "target": null
+      },
+      {
+        "edge": [
+          "mul_var_attn",
+          "invsqrt_var_attn"
+        ],
+        "boot": 1,
+        "target": null
+      }
+    ]
+  }
+]
